@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const bodyParse = require('body-parser')
 require('dotenv').config()
 require('./models/Post');
 const bodyParser = require("body-parser");
@@ -27,6 +26,8 @@ app.use('/auth',require('./routes/auth'))
 
 app.use('/posts',require('./routes/posts'))
 
-app.listen(3004, () => {
-    console.log("server is running on http://localhost:3004");
+const PORT = process.env.PORT ?? 3004
+
+app.listen(PORT, () => {
+    console.log(`server is running on http://localhost:${PORT}`);
 });
